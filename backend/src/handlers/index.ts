@@ -15,7 +15,7 @@ export const createAccount = async (req: Request, res: Response) => {
         const error = new Error('Un usuario con ese mail ya esta registrado')
         return res.status(409).json({ error: error.message })
     }
-
+ 
     const handle = slug(req.body.handle, '')
     const handleExists = await User.findOne({ handle })
     if (handleExists) {
