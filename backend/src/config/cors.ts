@@ -2,7 +2,9 @@ import { CorsOptions } from 'cors'
 
 export const corsConfig : CorsOptions = {
     origin: function(origin, callback) {
-        const whiteList = [process.env.FRONTEND_URL]
+        const whiteList = [process.env.FRONTEND_URL || 'http://localhost:5173']
+        console.log('FRONTEND_URL cargada:', process.env.FRONTEND_URL);
+
 
         if(process.argv[2] === '--api') {
             whiteList.push(undefined)
